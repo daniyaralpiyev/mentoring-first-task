@@ -40,6 +40,7 @@ const upperCaseMenuItems = menuItems.map(
   }
 )
 
+
 console.log(upperCaseMenuItems)
 
 const showCatalogCompany = (textMenu: string) => textMenu;
@@ -61,6 +62,9 @@ export class AppComponent {
   showCatalogCompany = false;
   showimageMain = true;
   newPages = newPagesArrays
+  footer1 = 'Главная'
+  footer2 = 'О компании'
+  footer3 = 'Каталог'
 
   isUpperCase = true
 
