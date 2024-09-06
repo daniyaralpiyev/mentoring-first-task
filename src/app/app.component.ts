@@ -32,6 +32,11 @@ import { RouterOutlet } from '@angular/router';
 // const shoppingResult = shooping('Ильнур', 'Хлеб', 'Мясо', 'Молоко', [30, 350, 70]);
 
 // console.log(shoppingResult)
+
+const showCatalogCompany = (textMenu: string) => textMenu;
+const text: string = 'О компании'
+
+const newPagesArrays = [5, 4, 3, 2, 1]
 const menuItems = ['Каталог', 'Стройматериалы', ' Инструменты', ' Электрика', ' Интерьер и одежда'];
 
 const upperCaseMenuItems = menuItems.map(
@@ -40,13 +45,7 @@ const upperCaseMenuItems = menuItems.map(
   }
 )
 
-
 console.log(upperCaseMenuItems)
-
-const showCatalogCompany = (textMenu: string) => textMenu;
-const text: string = 'О компании'
-
-const newPagesArrays = [5, 4, 3, 2, 1]
 
 @Component({
   selector: 'app-root',
