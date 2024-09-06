@@ -66,7 +66,9 @@ export class AppComponent {
   readonly footer3 = 'Каталог'
 
   isUpperCase = true
-
+  
+  menuItems = upperCaseMenuItems;
+  
   changeMenuText() {
     this.menuItems = upperCaseMenuItems.map(
       item => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
@@ -82,7 +84,6 @@ export class AppComponent {
   readonly headerItem2 = 'О компании';
   readonly headerItem3 = 'Каталог';
 
-  menuItems = upperCaseMenuItems;
   readonly header2Item2 = 'Стройматериалы';
   readonly header2Item3 = 'Инструменты';
   readonly header2Item4 = 'Электрика';
