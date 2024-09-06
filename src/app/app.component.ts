@@ -57,13 +57,13 @@ console.log(upperCaseMenuItems)
 export class AppComponent {
   title = 'mentoring-first-project';
 
-  aboutCompany = showCatalogCompany(text)
+  readonly aboutCompany = showCatalogCompany(text)
   showCatalogCompany = false;
   showimageMain = true;
-  newPages = newPagesArrays
-  footer1 = 'Главная'
-  footer2 = 'О компании'
-  footer3 = 'Каталог'
+  readonly newPages = newPagesArrays
+  readonly footer1 = 'Главная'
+  readonly footer2 = 'О компании'
+  readonly footer3 = 'Каталог'
 
   isUpperCase = true
 
