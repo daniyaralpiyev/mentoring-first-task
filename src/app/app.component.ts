@@ -71,7 +71,7 @@ export class AppComponent {
     this.menuItems = upperCaseMenuItems.map(
       item => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
     )
-
+    
     this.isUpperCase = !this.isUpperCase
   }
 
