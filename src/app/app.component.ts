@@ -37,9 +37,9 @@ const showCatalogCompany = (textMenu: string) => textMenu;
 const text: string = 'О компании'
 
 const newPagesArrays = [5, 4, 3, 2, 1]
-const menuItems = ['Каталог', 'Стройматериалы', ' Инструменты', ' Электрика', ' Интерьер и одежда'];
+const menuItemsCatalog = ['Каталог', 'Стройматериалы', ' Инструменты', ' Электрика', ' Интерьер и одежда'];
 
-const upperCaseMenuItems = menuItems.map(
+const upperCaseMenuItems = menuItemsCatalog.map(
   (item) => {
     return item.toUpperCase();
   }
@@ -66,14 +66,14 @@ export class AppComponent {
   readonly footer3 = 'Каталог'
 
   isUpperCase = true
-  
+
   menuItems = upperCaseMenuItems;
-  
+
   changeMenuText() {
-    this.menuItems = upperCaseMenuItems.map(
-      item => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
+    this.menuItems = upperCaseMenuItems.map((item) =>
+      this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
     )
-    
+
     this.isUpperCase = !this.isUpperCase
   }
 
