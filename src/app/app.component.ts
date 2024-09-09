@@ -77,7 +77,6 @@ export class AppComponent {
     this.isUpperCase = !this.isUpperCase
   }
 
-
   isShowCatalog = false;
 
   readonly headerItem1 = 'Главная';
