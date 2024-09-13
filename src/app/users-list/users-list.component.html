@@ -1,0 +1,11 @@
+<h1 class="name_title">Компонент списка юзеров</h1>
+<!-- <div *ngFor="let i of users">{{$any(users[0]).name}}</div> -->
+<div class="content_users">
+    <div *ngFor="let i of users" class="block_users">
+        <p>{{$any(i).name}}</p>
+        <p>{{$any(i).email}}</p>
+        <p>{{$any(i).website}}</p>
+        <p>{{$any(i).company.name}}</p>
+        <button (click)="deleteUser(i.id)" class="btn_delete">Удалить юзера</button>
+    </div>
+</div>

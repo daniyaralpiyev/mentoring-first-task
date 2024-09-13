@@ -40,7 +40,6 @@
         <nav class="nav-2" *ngIf="changeMenuText">
             <div class="header-second-nav-item" *ngFor="let item of menuItems">{{item}}</div>
         </nav>
-        <button (click)="showimageMain = !showimageMain">Показать мужика</button>
     </div>
     <div class="header-second-right">
         <form class="header-second-item">
@@ -53,6 +52,9 @@
     </div>
 </div>
 
+<router-outlet></router-outlet>
+
+<button (click)="showimageMain = !showimageMain">Показать мужика</button>
 <div *ngIf="showimageMain">
     <img src="/assets/Rectangle5.png" alt="background-large" style="width: 100%;">
 </div>
