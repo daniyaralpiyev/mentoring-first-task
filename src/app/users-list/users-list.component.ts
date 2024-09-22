@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from "@angular/common";
-import { HttpClient } from "@angular/common/http";
 import { Component, inject } from "@angular/core";
+import { UsersApiService } from "../users-api.service";
+import { UserCardComponent } from "./user-card/user-card.component";
 
 export interface User {
     id: number;
@@ -31,15 +32,14 @@ export interface User {
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
-    imports: [NgFor, NgIf]
+    imports: [NgFor, NgIf, UserCardComponent]
 })
 export class UsersListComponent {
-
-    readonly apiService = inject(HttpClient);
+    readonly usersApiService = inject(UsersApiService)
     users: User[] = [];
 
     constructor() {
-        this.apiService.get<any>('https://jsonplaceholder.typicode.com/users').subscribe(
+        this.usersApiService.getUsers().subscribe(
             (response: any) => {
                 this.users = response;
                 console.log('USERS: ', this.users)
@@ -47,13 +47,13 @@ export class UsersListComponent {
         )
     }
 
-    deleteUser(id: number) {
+    deleteUser_list(id: number) {
         this.users = this.users.filter(
             item => {
                 if (id === item.id) {
-                    return false
+                    return false;
                 } else {
-                    return true
+                    return true;
                 }
             }
             // короткая версия кода делает сравнение элементов если они разные оставляет

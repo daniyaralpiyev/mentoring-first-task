@@ -1,12 +1,9 @@
 <h1 class="name_title">Компонент списка юзеров</h1>
 
 <div class="content_users">
-    <div *ngFor="let i of users" class="block_users">
-        <!-- <p>{{$any(i).name}}</p> лайфхак от Ильнура с $any()-->
-        <p>{{i.name}}</p>
-        <p>{{i.email}}</p>
-        <p>{{i.website}}</p>
-        <p>{{i.company.name}}</p>
-        <button (click)="deleteUser(i.id)" class="btn_delete">Удалить юзера</button>
+    <div *ngFor="let i of users">
+        <!-- квадратные скобки это связывание свойства (input binding) в Angular
+         в [] передаем определенные данные [user_input]="i" -->
+        <app-user-card [user_input]="i" (deleteUser_card)="deleteUser_list($event)"></app-user-card>
     </div>
 </div>

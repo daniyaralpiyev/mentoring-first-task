@@ -648,7 +648,8 @@
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     &:hover {
-        font-weight: 700;
+        background-color: #4B565E;
         color: #f0ba4e;
+        cursor: pointer;
     }
 }

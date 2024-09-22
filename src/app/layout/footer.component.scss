@@ -83,7 +83,7 @@
     padding: 5px 5px 5px 30px;
     margin-top: 30px;
     &:hover {
-        border: solid #fdb84b 2px;
+        border: solid #fdb84b 1px;
     }
 }
 
@@ -98,7 +98,6 @@
         color: white;
     }
     &:hover {
-        font-weight: 600;
         cursor: pointer;
     }
 }
@@ -115,6 +114,7 @@
     &:hover {
         color: #f3b81d;
         background-color: gray;
+        cursor: pointer;
     }
 }
 
@@ -142,6 +142,7 @@
     border: none;
     &:hover {
         color: #f3b81d;
+        cursor: pointer;
     }
 }
 

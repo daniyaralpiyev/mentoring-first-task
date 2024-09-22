@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 const showCatalogCompany = (textMenu: string) => textMenu;
-const text = showCatalogCompany('О компании')
+const text = showCatalogCompany('О компании');
 
 const menuItems = ['Каталог', 'Стройматериалы', ' Инструменты', ' Электрика', ' Интерьер и одежда'];
 
@@ -24,10 +24,11 @@ export class HeaderComponent {
 
   title = 'mentoring-first-project';
 
-  readonly aboutCompany = text
+  readonly aboutCompany = text;
+
   showCatalogCompany = false;
 
-  isUpperCase = true
+  isUpperCase = true;
 
   menuItems = upperCaseMenuItems;
 
@@ -36,7 +37,7 @@ export class HeaderComponent {
       item => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
     )
 
-    this.isUpperCase = !this.isUpperCase
+    this.isUpperCase = !this.isUpperCase;
   }
 
   readonly headerItem1 = 'Главная';

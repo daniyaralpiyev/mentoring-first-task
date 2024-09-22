@@ -14,5 +14,5 @@ import { FooterComponent } from "./layout/footer.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  // title = 'mentoring-first-project';
+  title = 'mentoring-first-project';
 }
