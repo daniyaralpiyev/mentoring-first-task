@@ -1,10 +1,7 @@
 <h1 class="name_title">Компонент списка Todos</h1>
 
 <div class="content_users">
-
     <div *ngFor="let i of todosServide.todos$ | async">
-
         <app-todo-card [todo_input]="i" (deleteTodo_card)="deleteTodo_list($event)"></app-todo-card>
-        
     </div>
 </div>

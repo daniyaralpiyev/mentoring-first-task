@@ -21,7 +21,6 @@ export interface Todos {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodosListComponent {
-
   readonly todosApiService = inject(TodosApiService);
   readonly todosServide = inject(TodosService); // передаем из файла todos.service.ts
 
