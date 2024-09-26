@@ -1,7 +1,8 @@
-import { NgFor, NgIf } from "@angular/common";
-import { Component, inject } from "@angular/core";
+import { AsyncPipe, NgFor, NgIf } from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { UsersApiService } from "../users-api.service";
 import { UserCardComponent } from "./user-card/user-card.component";
+import { UsersService } from "../users.service";
 
 export interface User {
     id: number;
@@ -32,32 +33,27 @@ export interface User {
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
-    imports: [NgFor, NgIf, UserCardComponent]
+    imports: [NgFor, NgIf, UserCardComponent, AsyncPipe],
+    // changeDetection: ChangeDetectionStrategy.OnPush для реактивных данных RXJS
+    // с это функцией OnPush работа сайта с данными идет намного быстрее
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersListComponent {
-    readonly usersApiService = inject(UsersApiService)
-    users: User[] = [];
+    readonly usersApiService = inject(UsersApiService);
+    readonly usersService = inject(UsersService); // передали из файла users.service.ts
 
     constructor() {
+        // подписка => получение данных методом getUsers из файла users-api.service.ts
         this.usersApiService.getUsers().subscribe(
+            // подписка => установка => загрузка данных методом setUsers из файла users.service.ts
             (response: any) => {
-                this.users = response;
-                console.log('USERS: ', this.users)
+                this.usersService.setUsers(response);
             }
         )
     }
 
     deleteUser_list(id: number) {
-        this.users = this.users.filter(
-            item => {
-                if (id === item.id) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            // короткая версия кода делает сравнение элементов если они разные оставляет
-            // item => item.id !== id
-        )
+        // удаления данных используя метод setUsers из файла users.service.ts
+        this.usersService.deleteUser(id);
     }
 }
