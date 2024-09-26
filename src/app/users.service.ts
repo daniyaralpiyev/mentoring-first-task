@@ -47,8 +47,8 @@ export class UsersService {
   createUser(user: User) {
     this.usersSubject$.next(
       // spread operator ... - это оператор расширения,
-      // он создает новый массив, который включает все элементы из this.users
-      // и добавляет в конец новый объект user.
+      // он создает новый массив, который включает все элементы из this.users$
+      // и добавляет в конец новый объект user
       [...this.usersSubject$.value, user]
     )
   }
@@ -59,7 +59,7 @@ export class UsersService {
     this.usersSubject$.next(
       this.usersSubject$.value.filter(
         item => {
-          if (id === item.id) {
+          if (item.id === id) {
             return false;
           } else {
             return true;

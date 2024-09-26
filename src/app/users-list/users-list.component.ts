@@ -35,7 +35,7 @@ export interface User {
     standalone: true,
     imports: [NgFor, NgIf, UserCardComponent, AsyncPipe],
     // changeDetection: ChangeDetectionStrategy.OnPush для реактивных данных RXJS
-    // с это функцией OnPush работа сайта с данными идет намного быстрее
+    // с это функцией OnPush работа кода и сайта с данными идет намного быстрее
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersListComponent {
@@ -45,15 +45,15 @@ export class UsersListComponent {
     constructor() {
         // подписка => получение данных методом getUsers из файла users-api.service.ts
         this.usersApiService.getUsers().subscribe(
-            // подписка => установка => загрузка данных методом setUsers из файла users.service.ts
             (response: any) => {
+                // подписка => установка и загрузка данных методом setUsers из файла users.service.ts
                 this.usersService.setUsers(response);
             }
         )
     }
 
     deleteUser_list(id: number) {
-        // удаления данных используя метод setUsers из файла users.service.ts
+        // удаления данных используя метод deleteUser из файла users.service.ts
         this.usersService.deleteUser(id);
     }
 }

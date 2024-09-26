@@ -19,7 +19,8 @@
     border-radius: 15px;
     margin: 15px 5px;
     &:hover {
-        background-color: #fff5da;
+        background-color: #3C3C3B;
+        color: #f3b81d;
     }
 }
 
@@ -44,5 +45,6 @@
 
 .btn_delete:hover {
     background-color: #3C3C3B;
+    border: 1px solid #f3b81d;
     color: #f3b81d;
 }
