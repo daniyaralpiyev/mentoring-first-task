@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosApiService } from '../todos-api.service';
 import { TodosService } from '../todos.service';
+import { CreateTodoFormComponent } from '../create-todo-form/create-todo-form.component';
 
 export interface Todos {
   userId: number,
@@ -14,7 +15,7 @@ export interface Todos {
 @Component({
   selector: 'app-todos-list',
   standalone: true,
-  imports: [NgFor, NgIf, TodoCardComponent, AsyncPipe],
+  imports: [NgFor, NgIf, TodoCardComponent, AsyncPipe, CreateTodoFormComponent],
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
   // changeDetection: ChangeDetectionStrategy.OnPush делает работу с данными намного быстрее
@@ -22,20 +23,30 @@ export interface Todos {
 })
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
-  readonly todosServide = inject(TodosService); // передаем из файла todos.service.ts
+  readonly todosService = inject(TodosService); // передаем из файла todos.service.ts
 
   constructor() {
     // подписка => получение данных методом getTodos
     this.todosApiService.getTodos().subscribe(
       (response: any) => {
         // подписка => установка и загрузка данных методом setTodos
-        this.todosServide.setTodos(response);
+        this.todosService.setTodos(response);
       }
     )
   }
 
   deleteTodo_list(id: number) {
     // удаления данных используя метод deleteTodo
-    this.todosServide.deleteTodo(id);
+    this.todosService.deleteTodo(id);
+  }
+
+  createTodoList(formData: Todos) {
+    this.todosService.createTodo({
+      userId: formData.userId,
+      id: formData.id,
+      title: formData.title,
+      completed: formData.completed
+    });
+    console.log('Данные формы: ', formData);
   }
 }

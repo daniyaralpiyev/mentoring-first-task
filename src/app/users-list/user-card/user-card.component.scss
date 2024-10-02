@@ -2,12 +2,12 @@
     width: 200px;
     color: #3C3C3B;
     font-family: 'Inter', sans-serif;
-    margin: 15px auto;
+    margin: 0 auto;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .block_users_card {
-    flex-direction: column;
-    justify-content: space-between;
     height: 270px;
     width: 200px;
     flex-wrap: wrap;

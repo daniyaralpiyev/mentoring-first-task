@@ -45,12 +45,20 @@ export class UsersService {
   // создание юзера
   // перезаписывает на новый массив который равен старому но к нему добавляет новый элемент
   createUser(user: User) {
-    this.usersSubject$.next(
-      // spread operator ... - это оператор расширения,
-      // он создает новый массив, который включает все элементы из this.users$
-      // и добавляет в конец новый объект user
-      [...this.usersSubject$.value, user]
+    // проверка на одинаковые email
+    const existingUser = this.usersSubject$.value.find(
+      (currentElement) => currentElement.email === user.email
     )
+
+    if (existingUser !== undefined) {
+      alert('Такой Email уже зарегестрирован!')
+    } else {
+      // spread operator ... - это оператор расширения,
+      // создает новый массив, который включает все элементы из this.users$
+      // и добавляет в конец новый объект user
+      this.usersSubject$.next([...this.usersSubject$.value, user])
+      alert('Новый пользователь успешно добавлен!')
+    }
   }
 
   // удаление юзера
