@@ -39,25 +39,36 @@ export class UsersService {
           }
         }
       )
-    )
+    );
   }
 
   // создание юзера
   // перезаписывает на новый массив который равен старому но к нему добавляет новый элемент
   createUser(user: User) {
     // проверка на одинаковые email
-    const existingUser = this.usersSubject$.value.find(
+    const existingName = this.usersSubject$.value.find(
+      (currentElement) => currentElement.name === user.name
+    );
+    const existingEmail = this.usersSubject$.value.find(
       (currentElement) => currentElement.email === user.email
-    )
+    );
+    const existingWebsite = this.usersSubject$.value.find(
+      (currentElement) => currentElement.website === user.website
+    );
 
-    if (existingUser !== undefined) {
-      alert('Такой Email уже зарегестрирован!')
+    if (existingName !== undefined) {
+      alert('Такое имя уже зарегестрирован!');
+    } else if (existingEmail !== undefined) {
+      alert('Такой email уже зарегестрирован!');
+    } else if (existingWebsite !== undefined) {
+      alert('Такой веб-сайт уже зарегестрирован!');
     } else {
+      // next перезаписывает данные по новому и возвращает обновленный массив
       // spread operator ... - это оператор расширения,
       // создает новый массив, который включает все элементы из this.users$
       // и добавляет в конец новый объект user
-      this.usersSubject$.next([...this.usersSubject$.value, user])
-      alert('Новый пользователь успешно добавлен!')
+      this.usersSubject$.next([...this.usersSubject$.value, user]);
+      alert('Новый пользователь успешно добавлен!');
     }
   }
 
@@ -75,6 +86,6 @@ export class UsersService {
         }
         // item => item.id !== id короткая версия if else
       )
-    )
+    );
   }
 }

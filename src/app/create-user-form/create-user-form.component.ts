@@ -19,10 +19,10 @@ export class CreateUserFormComponent {
   // подключаем к html переменную form
   // класс FormGroup обеденяет все FormControl так как FormControl это элемент класса FormGroup
   public form = new FormGroup({
-    // каждый класс FormControl будет input
-    // '', [Validators.required] означает поле обязательно для заполнения
-    // '', [Validators.email] означает поле обязательно для заполнения c @
-    // '', [Validators.minLength(5)] означает поле обязательно должно быть минимум 5 символов
+    // каждую переменную класс FormControl будем передавать в файле html в тег input по названиям
+    // '', [Validators.required] поле обязательно для заполнения
+    // '', [Validators.email] поле ожидает обязательное заполнение c @
+    // '', [Validators.minLength(5)] поле ожидает минимум 5 символов
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(5)]),
     website: new FormControl('', [Validators.required, Validators.minLength(5)]),

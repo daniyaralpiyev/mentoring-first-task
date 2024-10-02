@@ -14,11 +14,12 @@ export class UserCardComponent {
 
     // @Output() — декоратор, используемый для создания событий
     @Output()
-    // EventEmitter — это класс Angular, он же обработчик события который создает событие через клик в html
-    deleteUser_card = new EventEmitter();
+    // EventEmitter — это класс Angular, он же обработчик события который создает событие
+    deleteUser_card = new EventEmitter(); // deleteUser_card используем в файле html и в файле html закидываем в круглые скобки(deleteUser_card)="здесь он будет вызывать другую переменную"
 
+    // onDeleteUser используем в файле html user-card.component.html
     onDeleteUser(userId: number) {
-        // Метод emit() запускает событие и передаёт данные через userId родительскому компоненту.
-        this.deleteUser_card.emit(userId); // выбрасываем событие через emit()
+        // emit() выбрасывает и запускает событие и передаёт данные через userId родительскому компоненту.
+        this.deleteUser_card.emit(userId);
     }
 }

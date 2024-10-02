@@ -61,11 +61,11 @@ export class UsersListComponent {
 
         this.usersService.users$.subscribe(
             users => console.log(users)
-        )
+        );
     }
 
     deleteUser_list(id: number) {
-        // удаления данных используя метод deleteUser из файла users.service.ts
+        // удаление id используя метод deleteUser из файла users.service.ts
         this.usersService.deleteUser(id);
     }
 

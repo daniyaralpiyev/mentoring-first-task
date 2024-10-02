@@ -45,7 +45,7 @@ export class TodosListComponent {
       userId: formData.userId,
       id: formData.id,
       title: formData.title,
-      completed: formData.completed
+      completed: formData.completed,
     });
     console.log('Данные формы: ', formData);
   }

@@ -28,18 +28,31 @@ export class TodosService {
                     }
                 }
             )
-        )
+        );
     }
 
     // создание todo
     createTodo(todo: Todos) {
-        // next перезаписывает данные по новому и возвращает обновленный массив
-        this.todosSubject$.next(
-            // spread operator ... - это оператор расширения,
-            // он создает новый массив, который включает все элементы из this.todos$
-            // и добавляет в конец новый объект todo
-            [...this.todosSubject$.value, todo]
-        )
+        const existingUserId = this.todosSubject$.value.find(
+            (currentElement) => currentElement.userId === todo.userId
+        );
+        const existingId = this.todosSubject$.value.find(
+            (currentElement) => currentElement.id === todo.id
+        );
+        const existingTask = this.todosSubject$.value.find(
+            (currentElement) => currentElement.title === todo.title
+        );
+
+        if (existingUserId !== undefined) {
+            alert('Такое задание уже существует!');
+        } else if (existingId !== undefined) {
+            alert('Такой ID уже существует!');
+        } else if (existingTask !== undefined) {
+            alert('Такая задача уже существует!');
+        } else {
+            this.todosSubject$.next([...this.todosSubject$.value, todo]);
+            alert('Новая задача успешно добавлена!');
+        }
     }
 
     // удаление todo
@@ -50,6 +63,6 @@ export class TodosService {
                 // метод filter проверяет если id не равны оставляет, иначе исключает
                 item => item.id !== id
             )
-        )
+        );
     }
 }
