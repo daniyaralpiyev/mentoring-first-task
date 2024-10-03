@@ -45,7 +45,7 @@ export class CreateTodoFormComponent {
   public submitFormTodo(): void {
     const formData = {
       ...this.form.value,
-      completed: this.getCompletedValue() // Устанавливаем булево значение
+      completed: this.getCompletedValue() // Устанавливаем boolean значение
     };
 
     this.createTodoForm.emit(formData); // Отправляем данные формы
