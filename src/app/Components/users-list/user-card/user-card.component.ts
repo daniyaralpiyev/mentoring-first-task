@@ -24,7 +24,6 @@ import {YellowDirective} from "../../../derectives/yellow.directive";
   styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
-
   private readonly dialog: MatDialog = inject(MatDialog);
   private readonly snackBar: MatSnackBar = inject(MatSnackBar);
 
