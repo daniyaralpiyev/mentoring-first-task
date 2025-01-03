@@ -9,7 +9,6 @@ import {
   standalone: true
 })
 export class ColorBasketDirective {
-
   textColor: string = '#f0ba4e'
   color: string = '#333946'
 
