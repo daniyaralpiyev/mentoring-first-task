@@ -14,11 +14,11 @@ import { UsersApiService } from "./users-api.service";
   providedIn: 'root'
 })
 export class UsersService {
-  private readonly usersSubject$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
-  public readonly users$: Observable<IUser[]> = this.usersSubject$.asObservable();
   private readonly localStorageService: LocalStorageService = inject(LocalStorageService);
   private readonly usersApiService: UsersApiService = inject(UsersApiService);
   private readonly localStorageUsersKey: string = 'users';
+  private readonly usersSubject$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
+  public readonly users$: Observable<IUser[]> = this.usersSubject$.asObservable();
 
   private setUsers(usersData: IUser[]): void {
     this.localStorageService.saveDataLocalStorage<IUser[]>(
