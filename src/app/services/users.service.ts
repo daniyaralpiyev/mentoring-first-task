@@ -1,8 +1,14 @@
-import {inject, Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {IUser} from "../Interfaces/IUser";
-import {LocalStorageService} from "./local-storage.service";
-import {UsersApiService} from "./users-api.service";
+import {
+  inject,
+  Injectable
+} from '@angular/core';
+import {
+  BehaviorSubject,
+  Observable
+} from "rxjs";
+import { IUser } from "../Interfaces/IUser";
+import { LocalStorageService } from "./local-storage.service";
+import { UsersApiService } from "./users-api.service";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +24,6 @@ export class UsersService {
     this.localStorageService.saveDataLocalStorage<IUser[]>(
       this.localStorageUsersKey, usersData
     )
-
     this.usersSubject$.next(usersData);
   }
 

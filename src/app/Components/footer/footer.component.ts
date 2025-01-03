@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NgFor} from "@angular/common";
+import { Component } from '@angular/core';
+import { NgFor } from "@angular/common";
 
 const menuItems: string[] = ['Главная', 'О компании', 'Каталог', 'Запчасти', 'Интерьер', 'Стиль', 'Партнеры'];
 

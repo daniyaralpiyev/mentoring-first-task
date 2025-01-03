@@ -1,11 +1,21 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {UsersApiService} from "../../services/users-api.service";
-import {UsersService} from "../../services/users.service";
-import {AsyncPipe, NgFor} from "@angular/common";
-import {IUser, IUserCreate} from "../../Interfaces/IUser";
-import {UserCardComponent} from "./user-card/user-card.component";
-import {CreateUserFormComponent} from "./create-user-form/create-user-form.component";
-import {CreateUserBtnComponent} from "./create-user-btn/create-user-btn.component";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject
+} from '@angular/core';
+import { UsersApiService } from "../../services/users-api.service";
+import { UsersService } from "../../services/users.service";
+import {
+  AsyncPipe,
+  NgFor
+} from "@angular/common";
+import {
+  IUser,
+  IUserCreate
+} from "../../Interfaces/IUser";
+import { UserCardComponent } from "./user-card/user-card.component";
+import { CreateUserFormComponent } from "./create-user-form/create-user-form.component";
+import { CreateUserBtnComponent } from "./create-user-btn/create-user-btn.component";
 
 @Component({
   selector: 'app-users-list',

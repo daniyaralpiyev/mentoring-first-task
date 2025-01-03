@@ -1,4 +1,8 @@
-import {Directive, HostBinding, HostListener} from '@angular/core';
+import {
+  Directive,
+  HostBinding,
+  HostListener
+} from '@angular/core';
 
 @Directive({
   selector: '[colorBasket]',
@@ -23,14 +27,12 @@ export class ColorBasketDirective {
   enter(): void {
     this.color = '#f0ba4e'
     this.textColor = '#333946'
-    console.log('ENTER');
   }
 
   @HostListener('mouseleave')
   leave(): void {
     this.color = '#4c565f';
     this.textColor = '#f0ba4e'
-    console.log("LEAVE");
   }
 
 }

@@ -1,6 +1,11 @@
-import {ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {inject} from "@angular/core";
-import {UserService} from "../services/user.service";
+import {
+  ActivatedRouteSnapshot,
+  CanActivateFn,
+  Router,
+  RouterStateSnapshot
+} from '@angular/router';
+import { inject } from "@angular/core";
+import { UserService } from "../services/user.service";
 
 export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const userService: UserService = inject(UserService);
@@ -9,6 +14,6 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   if (userService.isAdmin) {
     return true;
   } else {
-    return router.navigate(['users']).then((result: boolean): boolean => false);
+    return router.navigate(['users']).then((_result: boolean): boolean => false);
   }
 };
