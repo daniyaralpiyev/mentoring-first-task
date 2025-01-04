@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   BehaviorSubject,
   Observable
@@ -10,10 +10,12 @@ import { IUserRole } from "../Interfaces/IUser";
   providedIn: 'root'
 })
 export class UserService {
+  private readonly router = inject(Router);
   private readonly userSubject$: BehaviorSubject<IUserRole | null> = new BehaviorSubject<IUserRole | null>(null);
   public readonly user$: Observable<IUserRole | null> = this.userSubject$.asObservable();
 
-  constructor(private router: Router) {
+  constructor() {
+    this.router
   };
 
   private user: IUserRole = {
