@@ -5,10 +5,10 @@ import {
 import {
   BehaviorSubject,
   Observable
-} from "rxjs";
-import { IUser } from "../Interfaces/IUser";
-import { LocalStorageService } from "./local-storage.service";
-import { UsersApiService } from "./users-api.service";
+} from 'rxjs';
+import { IUser } from '../Interfaces/IUser';
+import { LocalStorageService } from './local-storage.service';
+import { UsersApiService } from './users-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class UsersService {
   private setUsers(usersData: IUser[]): void {
     this.localStorageService.saveDataLocalStorage<IUser[]>(
       this.localStorageUsersKey, usersData
-    )
+    );
     this.usersSubject$.next(usersData);
   }
 

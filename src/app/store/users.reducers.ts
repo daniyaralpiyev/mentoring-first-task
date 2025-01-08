@@ -12,7 +12,7 @@ const initialState: { users: IUser[] } = {
     users: [],
 };
 
-export const usersReducers = createReducer(
+export const usersReducer = createReducer(
     initialState,
     on(UsersActions.loadSuccess, (state: { users: IUser[] }, payload): { users: IUser[] } => ({
         ...state,

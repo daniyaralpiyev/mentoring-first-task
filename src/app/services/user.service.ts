@@ -15,7 +15,6 @@ export class UserService {
   public readonly user$: Observable<IUserRole | null> = this.userSubject$.asObservable();
 
   constructor() {
-    this.router
   };
 
   private user: IUserRole = {
